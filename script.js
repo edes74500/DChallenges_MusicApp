@@ -13,8 +13,8 @@ let currentIndex = 0;
 let mouseState;
 
 let musicDisplay = (musicIndex) => {
-  songAudio.src = `\/music-player/assets\/${allSongs[musicIndex].src}.mp3`;
-  audioApp.querySelector(".img-container img").src = `\/music-player/assets/${allSongs[musicIndex].img}.png`;
+  songAudio.src = `\/assets\/${allSongs[musicIndex].src}.mp3`;
+  audioApp.querySelector(".img-container img").src = `\/assets/${allSongs[musicIndex].img}.png`;
   audioApp.querySelector(".title-container h3").innerHTML = `${allSongs[musicIndex].name}`;
   audioApp.querySelector(".title-container p").innerHTML = `${allSongs[musicIndex].artist}`;
 };
@@ -22,12 +22,12 @@ let musicDisplay = (musicIndex) => {
 let playPauseMusic = () => {
   if (isOn == false) {
     songAudio.play();
-    playBtn.src = `/music-player/assets/pause_icon.svg`;
+    playBtn.src = `/assets/pause_icon.svg`;
     isOn = true;
   } else {
     songAudio.pause();
     isOn = false;
-    playBtn.src = `/music-player/assets/Play_fill.svg`;
+    playBtn.src = `/assets/Play_fill.svg`;
   }
 };
 

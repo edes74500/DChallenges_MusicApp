@@ -8,7 +8,7 @@
 
 body {
   min-height: 100vh;
-  background-image: url(/music-player/assets/bg.jpg);
+  background-image: url(/assets/bg.jpg);
   font-family: "Inter";
   display: -webkit-box;
   display: -ms-flexbox;
