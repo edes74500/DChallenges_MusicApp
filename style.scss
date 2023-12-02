@@ -17,18 +17,15 @@ body {
   background-image: url(/assets/bg.jpg);
   background-size: cover;
   background-attachment: fixed;
-  background-position: top left;
   font-family: "Inter";
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .app-container {
-  background-color: $grey;
-  // opacity: 0.7;
+  background-color: $darkgrey;
   padding: 20px;
   border-radius: 20px;
-  // box-shadow: 1px 1px 20px #00000080;
   .title-container {
     display: flex;
     flex-direction: column;
@@ -36,7 +33,6 @@ body {
     padding: 1em;
     color: $white;
     text-align: center;
-    font-family: "Inter";
     h3 {
       font-size: 1rem;
       letter-spacing: 1px;
@@ -102,9 +98,7 @@ body {
       cursor: pointer;
       &:hover {
         filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
-        color: lawngreen;
       }
-      // filter: invert(99%) sepia(1%) saturate(2000%) hue-rotate(181deg) brightness(96%) contrast(92%);
     }
     .play-btn {
       box-shadow: 1px 1px 10px $pink;
@@ -116,14 +110,12 @@ body {
       align-items: center;
       justify-content: center;
       &:hover {
-        // filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
         background: white;
         box-shadow: 1px 1px 10px rgb(255, 255, 255);
         img {
           filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
         }
       }
-      // fill: lightblue;
     }
   }
 }

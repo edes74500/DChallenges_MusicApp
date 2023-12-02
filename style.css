@@ -11,7 +11,6 @@ body {
   background-image: url(/assets/bg.jpg);
   background-size: cover;
   background-attachment: fixed;
-  background-position: top left;
   font-family: "Inter";
   display: -webkit-box;
   display: -ms-flexbox;
@@ -25,7 +24,7 @@ body {
 }
 
 .app-container {
-  background-color: rgba(30, 30, 54, 0.7607843137);
+  background-color: rgba(18, 24, 38, 0.6509803922);
   padding: 20px;
   border-radius: 20px;
 }
@@ -41,7 +40,6 @@ body {
   padding: 1em;
   color: #e5e7eb;
   text-align: center;
-  font-family: "Inter";
 }
 .app-container .title-container h3 {
   font-size: 1rem;
@@ -127,7 +125,6 @@ body {
 .app-container .control-containers object:hover {
   -webkit-filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
           filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
-  color: lawngreen;
 }
 .app-container .control-containers .play-btn {
   -webkit-box-shadow: 1px 1px 10px #c93b76;

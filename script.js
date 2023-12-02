@@ -1,7 +1,8 @@
 // bar progression width = medi.duration current x 100 / totale
 
 const audioApp = document.querySelector(".app-container");
-const playBtn = audioApp.querySelector(".play-btn img");
+const playBtn = audioApp.querySelector(".play-btn");
+const playBtnImg = audioApp.querySelector(".play-btn img");
 const nextBtn = audioApp.querySelector("#nextBtn");
 const prvBtn = audioApp.querySelector("#previousBtn");
 let songAudio = document.querySelector("#songAudio");
@@ -23,12 +24,12 @@ let musicDisplay = (musicIndex) => {
 let playPauseMusic = () => {
   if (isOn == false) {
     songAudio.play();
-    playBtn.src = `/assets/pause_icon.svg`;
+    playBtnImg.src = `/assets/pause_icon.svg`;
     isOn = true;
   } else {
     songAudio.pause();
     isOn = false;
-    playBtn.src = `/assets/Play_fill.svg`;
+    playBtnImg.src = `/assets/Play_fill.svg`;
   }
 };
 
