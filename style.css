@@ -3,22 +3,25 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   min-height: 100vh;
   background-image: url(/assets/bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top left;
   font-family: "Inter";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .app-container {
@@ -32,8 +35,8 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 5px;
   padding: 1em;
   color: #e5e7eb;
@@ -59,9 +62,9 @@ body {
 }
 .app-container .progress-container {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .app-container .progress-container .timer-container {
   display: -webkit-box;
@@ -69,8 +72,8 @@ body {
   display: flex;
   font-size: 0.625rem;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   color: #4d5562;
   padding-bottom: 0.5em;
 }
@@ -83,7 +86,7 @@ body {
 }
 .app-container .progress-container .bar-container .bar-progress {
   -webkit-box-shadow: 1px 1px 5px #c93b76;
-  box-shadow: 1px 1px 5px #c93b76;
+          box-shadow: 1px 1px 5px #c93b76;
   border-radius: inherit;
   height: inherit;
   width: 0%;
@@ -96,7 +99,7 @@ body {
   right: 0;
   top: 50%;
   -webkit-transform: translate(50%, -50%);
-  transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
   height: 15px;
   width: 15px;
   border-radius: 200px;
@@ -104,17 +107,17 @@ body {
 }
 .app-container .control-containers {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   padding-top: 2em;
   gap: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .app-container .control-containers img,
 .app-container .control-containers object {
@@ -123,12 +126,12 @@ body {
 .app-container .control-containers img:hover,
 .app-container .control-containers object:hover {
   -webkit-filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
-  filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
+          filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
   color: lawngreen;
 }
 .app-container .control-containers .play-btn {
   -webkit-box-shadow: 1px 1px 10px #c93b76;
-  box-shadow: 1px 1px 10px #c93b76;
+          box-shadow: 1px 1px 10px #c93b76;
   background-color: #c93b76;
   height: 3em;
   width: 3em;
@@ -137,18 +140,18 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .app-container .control-containers .play-btn:hover {
   background: white;
   -webkit-box-shadow: 1px 1px 10px rgb(255, 255, 255);
-  box-shadow: 1px 1px 10px rgb(255, 255, 255);
+          box-shadow: 1px 1px 10px rgb(255, 255, 255);
 }
 .app-container .control-containers .play-btn:hover img {
   -webkit-filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
-  filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
-} /*# sourceMappingURL=style.css.map */
+          filter: invert(31%) sepia(88%) saturate(1365%) hue-rotate(306deg) brightness(83%) contrast(86%);
+}/*# sourceMappingURL=style.css.map */
