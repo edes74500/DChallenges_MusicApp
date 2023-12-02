@@ -67,6 +67,19 @@ body {
       width: 100%;
       height: 5px;
       background-color: $white;
+      &:hover div::after,
+      .is-hover::after {
+        opacity: 1;
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(50%, -50%);
+        height: 15px;
+        width: 15px;
+        border-radius: 200px;
+        background: $pink;
+      }
       .bar-progress {
         box-shadow: 1px 1px 5px $pink;
         border-radius: inherit;
@@ -74,17 +87,6 @@ body {
         width: 0%;
         background-color: $pink;
         position: relative;
-        &:after {
-          content: "";
-          position: absolute;
-          right: 0;
-          top: 50%;
-          transform: translate(50%, -50%);
-          height: 15px;
-          width: 15px;
-          border-radius: 200px;
-          background: $pink;
-        }
       }
     }
   }

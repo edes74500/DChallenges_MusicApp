@@ -8,6 +8,8 @@ const prvBtn = audioApp.querySelector("#previousBtn");
 let songAudio = document.querySelector("#songAudio");
 let progressBar = audioApp.querySelector(".bar-progress");
 let totalBar = audioApp.querySelector(".bar-container");
+let afterBar = window.getComputedStyle(progressBar, "::after");
+console.log(afterBar);
 const progressContainer = audioApp.querySelector(".progress-container");
 let isOn = false;
 let currentIndex = 0;
@@ -53,7 +55,8 @@ songAudio.addEventListener("loadeddata", (e) => {
 
 songAudio.addEventListener("timeupdate", (e) => {
   if (mouseDown === false) timeSet(e.target.currentTime, "current");
-  if (mouseDown === false) progressBar.style.width = `${(e.target.currentTime * 100) / e.target.duration}%`;
+  if (mouseDown === false)
+    progressBar.style.setProperty("width", `${(e.target.currentTime * 100) / e.target.duration}%`);
   if (e.target.currentTime == e.target.duration) {
     if (currentIndex < allSongs.length - 1) currentIndex++;
     else currentIndex = 0;
@@ -103,6 +106,7 @@ document.addEventListener("mousemove", (e) => {
         "current"
       );
     }
+    progressBar.classList.add("is-hover");
   }
 });
 
@@ -110,5 +114,6 @@ window.addEventListener("mouseup", (e) => {
   if (mouseDown === true) {
     mouseDown = false;
     songAudio.currentTime = (songAudio.duration * (e.offsetX * 100)) / totalBar.clientWidth / 100;
+    progressBar.classList.remove("is-hover");
   }
 });
