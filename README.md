@@ -6,4 +6,4 @@ A simple music player that cycles through 2 songs with a click of a button. This
 
 ## Screenshot: 
 
-![app Music Player](/assets/Screenshot/desktop.jpg)(https://edes74500.github.io/DChallenges_MusicApp/)
+![app Music Player](/assets/Screenshot/desktop.jpg)
