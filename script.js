@@ -15,8 +15,8 @@ let x = 0;
 let mouseDown = false;
 
 let musicDisplay = (musicIndex) => {
-  songAudio.src = `\/assets\/${allSongs[musicIndex].src}.mp3`;
-  audioApp.querySelector(".img-container img").src = `\/assets/${allSongs[musicIndex].img}.png`;
+  songAudio.src = `\./assets\/${allSongs[musicIndex].src}.mp3`;
+  audioApp.querySelector(".img-container img").src = `\./assets/${allSongs[musicIndex].img}.png`;
   audioApp.querySelector(".title-container h3").innerHTML = `${allSongs[musicIndex].name}`;
   audioApp.querySelector(".title-container p").innerHTML = `${allSongs[musicIndex].artist}`;
 };
@@ -24,12 +24,12 @@ let musicDisplay = (musicIndex) => {
 let playPauseMusic = () => {
   if (isOn == false) {
     songAudio.play();
-    playBtnImg.src = `/assets/pause_icon.svg`;
+    playBtnImg.src = `./assets/pause_icon.svg`;
     isOn = true;
   } else {
     songAudio.pause();
     isOn = false;
-    playBtnImg.src = `/assets/Play_fill.svg`;
+    playBtnImg.src = `./assets/Play_fill.svg`;
   }
 };
 
