@@ -88,9 +88,9 @@ prvBtn.addEventListener("click", () => {
 totalBar.addEventListener("mousedown", () => (mouseDown = true));
 
 // change the bar progress when mouse is down
-document.addEventListener("mousemove", (e) => {
+window.addEventListener("mousemove", (e) => {
   if (mouseDown === true) {
-    console.log((((e.clientX - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 * songAudio.duration) / 100);
+    // console.log((((e.clientX - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 * songAudio.duration) / 100);
     // check if mouse X is after the bar
     if (((e.clientX - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 > 100) {
       progressBar.style.width = "100%";
@@ -113,7 +113,9 @@ document.addEventListener("mousemove", (e) => {
 window.addEventListener("mouseup", (e) => {
   if (mouseDown === true) {
     mouseDown = false;
-    songAudio.currentTime = (songAudio.duration * (e.offsetX * 100)) / totalBar.clientWidth / 100;
+    // console.log(e.clientX);
+    songAudio.currentTime =
+      (((e.clientX - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 * songAudio.duration) / 100;
     progressBar.classList.remove("is-hover");
   }
 });
