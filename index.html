@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="img-container">
+            <img src="/assets/cover-1.png" alt="img1">
+        </div>
+        <div class="title-container">
+            <h3>Lost in the City Lights</h3>
+            <p>Cosmo Sheldrake</p>
+        </div>
+        <div class="progress-container">
+            <div class="timer-container">
+                <span id="current-timer">00:20</span>
+                <span id="total-timer">3:20</span>
+            </div>
+            <div class="bar-container">
+                <div class="bar-progress"></div>
+            </div>
+            <audio id="songAudio" src=""></audio>
+        </div>
+        <div class="control-containers">
+            <img id="previousBtn" src="/music-player/assets/Stop_and_play_fill-1.svg">
+            <div class="play-btn">
+                <img src="/music-player/assets/Play_fill.svg">
+            </div>
+            <img id="nextBtn" src="/music-player/assets/Stop_and_play_fill.svg">
+        </div>
+    </div>
+    <script src="/music-player/allsongs.js"></script>
+    <script src="/music-player/script.js"></script>
+</body>
+
+</html>
