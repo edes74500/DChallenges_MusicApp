@@ -27,11 +27,13 @@ let playPauseMusic = () => {
   if (isOn == false) {
     songAudio.play();
     playBtnImg.src = `./assets/pause_icon.svg`;
+    playBtn.classList.add("is-play");
     isOn = true;
   } else {
     songAudio.pause();
     isOn = false;
     playBtnImg.src = `./assets/Play_fill.svg`;
+    playBtn.classList.remove("is-play");
   }
 };
 
