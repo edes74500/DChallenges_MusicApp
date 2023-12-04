@@ -5,16 +5,16 @@ const playBtn = audioApp.querySelector(".play-btn");
 const playBtnImg = audioApp.querySelector(".play-btn img");
 const nextBtn = audioApp.querySelector("#nextBtn");
 const prvBtn = audioApp.querySelector("#previousBtn");
+const progressContainer = audioApp.querySelector(".progress-container");
 let songAudio = document.querySelector("#songAudio");
 let progressBar = audioApp.querySelector(".bar-progress");
 let totalBar = audioApp.querySelector(".bar-container");
 let afterBar = window.getComputedStyle(progressBar, "::after");
-console.log(afterBar);
-const progressContainer = audioApp.querySelector(".progress-container");
 let isOn = false;
 let currentIndex = 0;
-let x = 0;
 let mouseDown = false;
+let touchDown = false;
+let clientXPosition;
 
 let musicDisplay = (musicIndex) => {
   songAudio.src = `\./assets\/${allSongs[musicIndex].src}.mp3`;
@@ -49,13 +49,46 @@ let timeSet = (timer, target) => {
   audioApp.querySelector(`#${target}-timer`).innerHTML = `${minutes}:${seconds}`;
 };
 
+let barUpdate = () => {
+  if (mouseDown === true || touchDown === true) {
+    // check if mouse X is after the bar
+    if (((clientXPosition - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 > 100) {
+      progressBar.style.width = "100%";
+      timeSet(`${songAudio.duration}`, "current");
+      // check if mouse X is before the bar
+    } else if (((clientXPosition - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 < 0) {
+      progressBar.style.width = "0%";
+      timeSet(`0`, "current");
+    } else {
+      progressBar.style.width = `${((clientXPosition - totalBar.offsetLeft) / totalBar.offsetWidth) * 100}%`;
+      timeSet(
+        `${Math.floor(
+          (((clientXPosition - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 * songAudio.duration) / 100
+        )}`,
+        "current"
+      );
+    }
+    progressBar.classList.add("is-hover");
+  }
+};
+
+let barUpdateEnd = () => {
+  if (mouseDown === true || touchDown === true) {
+    mouseDown = false;
+    touchDown = false;
+    songAudio.currentTime =
+      (((clientXPosition - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 * songAudio.duration) / 100;
+    progressBar.classList.remove("is-hover");
+  }
+};
+
 songAudio.addEventListener("loadeddata", (e) => {
   timeSet(e.target.duration, "total");
 });
 
 songAudio.addEventListener("timeupdate", (e) => {
-  if (mouseDown === false) timeSet(e.target.currentTime, "current");
-  if (mouseDown === false)
+  if (mouseDown === false && touchDown === false) timeSet(e.target.currentTime, "current");
+  if (mouseDown === false && touchDown === false)
     progressBar.style.setProperty("width", `${(e.target.currentTime * 100) / e.target.duration}%`);
   if (e.target.currentTime == e.target.duration) {
     if (currentIndex < allSongs.length - 1) currentIndex++;
@@ -85,37 +118,23 @@ prvBtn.addEventListener("click", () => {
 });
 
 // set mousedown on the progress bar
-totalBar.addEventListener("mousedown", () => (mouseDown = true));
+totalBar.addEventListener("mousedown", (e) => {
+  e.preventDefault();
+  mouseDown = true;
+});
 
-// change the bar progress when mouse is down
+//event listener for phone
+window.addEventListener("touchmove", (e) => {
+  clientXPosition = e.touches[0].clientX;
+  touchDown = true;
+  barUpdate();
+});
+
 window.addEventListener("mousemove", (e) => {
-  if (mouseDown === true) {
-    // console.log((((e.clientX - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 * songAudio.duration) / 100);
-    // check if mouse X is after the bar
-    if (((e.clientX - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 > 100) {
-      progressBar.style.width = "100%";
-      timeSet(`${songAudio.duration}`, "current");
-      // check if mouse X is before the bar
-    } else if (((e.clientX - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 < 0) {
-      progressBar.style.width = "0%";
-      timeSet(`0`, "current");
-    } else {
-      progressBar.style.width = `${((e.clientX - totalBar.offsetLeft) / totalBar.offsetWidth) * 100}%`;
-      timeSet(
-        `${Math.floor((((e.clientX - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 * songAudio.duration) / 100)}`,
-        "current"
-      );
-    }
-    progressBar.classList.add("is-hover");
-  }
+  clientXPosition = e.clientX;
+  barUpdate();
 });
 
-window.addEventListener("mouseup", (e) => {
-  if (mouseDown === true) {
-    mouseDown = false;
-    // console.log(e.clientX);
-    songAudio.currentTime =
-      (((e.clientX - totalBar.offsetLeft) / totalBar.offsetWidth) * 100 * songAudio.duration) / 100;
-    progressBar.classList.remove("is-hover");
-  }
-});
+//event to set music timer when release
+window.addEventListener("mouseup", () => barUpdateEnd());
+window.addEventListener("touchend", () => barUpdateEnd());
