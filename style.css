@@ -85,7 +85,6 @@ body {
   height: 5px;
   background-color: #e5e7eb;
 }
-.app-container .progress-container .bar-container:hover div::after,
 .app-container .progress-container .bar-container .is-hover::after {
   opacity: 1;
   content: "";
@@ -98,6 +97,21 @@ body {
   width: 15px;
   border-radius: 200px;
   background: #c93b76;
+}
+@media (hover: hover) {
+  .app-container .progress-container .bar-container:hover div::after {
+    opacity: 1;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translate(50%, -50%);
+            transform: translate(50%, -50%);
+    height: 15px;
+    width: 15px;
+    border-radius: 200px;
+    background: #c93b76;
+  }
 }
 .app-container .progress-container .bar-container .bar-progress {
   -webkit-box-shadow: 1px 1px 5px #c93b76;
